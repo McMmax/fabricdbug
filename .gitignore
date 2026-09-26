@@ -1,0 +1,19 @@
+# Generated build output
+.gradle/
+build/
+target/
+*.class
+*.log
+
+# Local credentials and editor state
+.env
+.env.*
+!.env.example
+*.token
+*.secret
+*.pem
+*.key
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store

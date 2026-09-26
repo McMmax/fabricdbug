@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-09-18T18:33:32.472349+00:00",
+  "minecraft": "26.2",
+  "fabric_loader": "0.19.3",
+  "fabricdbug_sha256": "47a428ef0f4e300fd5c28e40f17d23f8458f747e0e8fad08721e3072bccce78d",
+  "fabric_api_sha256": "a4510eb2e9d4057ff20f751e420d0618598813ab9695b6f793a53c2883808dac",
+  "profiles": [
+    {
+      "profile": "fabricdbug-a",
+      "offline_username": "StomzyA",
+      "offline_uuid": "c0373a1c-27ad-3c53-b680-6090569b9914",
+      "server": "127.0.0.1:25568",
+      "spacetime_uri": "http://127.0.0.1:13002",
+      "spacetime_database": "stomzydevhot",
+      "package": "fabricdbug-a.mrpack",
+      "sha256": "56aff9f60d027aaefa3c94bddacbad0fb8493dc7b58653fe94dd2b4a367bcfaf"
+    },
+    {
+      "profile": "fabricdbug-b",
+      "offline_username": "StomzyB",
+      "offline_uuid": "15d9a10b-6015-30d7-a0e7-dd2a672e8bef",
+      "server": "127.0.0.1:25568",
+      "spacetime_uri": "http://127.0.0.1:13002",
+      "spacetime_database": "stomzydevhot",
+      "package": "fabricdbug-b.mrpack",
+      "sha256": "8fef3e51ec1779de27ea7bcf483816ab2b7f2ff24c4d4034b6abf4a541a867ee"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+	"schemaVersion": 1,
+	"id": "fabricdbug",
+	"version": "${version}",
+	"name": "FabricDBug",
+	"description": "Developer-only Fabric overlay for SpacetimeDB-authoritative culling diagnostics.",
+	"authors": ["terrorify"],
+	"license": "ARR",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"dev.terrorify.tools.fabricdbug.FabricDBugMod"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">=26.1 <27",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
