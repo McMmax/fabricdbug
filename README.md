@@ -43,14 +43,32 @@ the PNG under the profile's `screenshots/` directory. FabricDBug reports the
 scheduled/completed path through the `report_fabricdbug_event` reducer so an
 agent can query the result from SpacetimeDB and open the local image.
 
-The old `mcpclient/` project remains available for historical regression
-fixtures, but it is not part of the FabricDBug test path. Run the deterministic
-Hot smoke probe with a FabricDBug player UUID:
+## Probing and validation
 
-```powershell
-pwsh .\scripts\probe-hot.ps1 -TargetUuid <player-uuid>
+Run the deterministic Hot smoke probe with a FabricDBug player UUID using either
+PowerShell or Python (cross-platform, stdlib-only):
+
+```bash
+# Python (cross-platform)
+python ./scripts/probe-hot.py --target-uuid <player-uuid>
+
+# PowerShell
+pwsh ./scripts/probe-hot.ps1 -TargetUuid <player-uuid>
 ```
 
 The probe exits `0` only after Hot health, SQL, and
 `command_intent_execute(intent_type = 11)` succeed. It exits `2` with a JSON
 blocker when no Hot endpoint is available.
+
+## Verification & telemetry harness
+
+The verification and telemetry tools ported from MCPClient are maintained under [`harness/`](./harness/README.md):
+- **Stream Alignment (`harness/align.py`)**: Joins client tick records (`ticks.jsonl`), outbound packets (`outbound.jsonl`), and inbound server corrections (`inbound.jsonl`) into tick-indexed structures without clock-offset drift.
+- **Movement Diff (`harness/reports/movement_diff.py`)**: Flags any server position correction exceeding a threshold and outputs a formatted $\pm N$-tick context window detailing velocity, ground state, input keys, and packet flows.
+- **SpacetimeDB Verification (`harness/scenarios/spacetime_rotation_check.py`)**: End-to-end look replication scenario verifying angle convergence against network head yaw quantization tolerance ($1/256$ turn $\approx 1.41^\circ$).
+- **Unit Tests (`harness/tests/test_harness.py`)**: Regression tests for telemetry alignment and diff calculations.
+
+Run tests:
+```bash
+python -m unittest harness/tests/test_harness.py
+```

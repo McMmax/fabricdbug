@@ -5,6 +5,13 @@ target/
 *.class
 *.log
 
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+captures/
+
 # Local credentials and editor state
 .env
 .env.*
